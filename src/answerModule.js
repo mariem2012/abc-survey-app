@@ -17,8 +17,6 @@ async function getAnswer () {
 
 async function addAnswer(answerDetails) {
     try {
-        console.log("Détails du fichier reçus:", answerDetails);
-
         if (!answerDetails || !answerDetails.id) {
             throw new Error("Les détails du fichier ou l'ID sont manquants.");
         }

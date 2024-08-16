@@ -16,13 +16,27 @@ const {
 
 
 const donnee = {
-  id: 20,
-  name: "Enquête de Satisfaction 003",
+   id: 20,
+   name: "Enquête de Satisfaction 003",
+   description: "Enquête visant à évaluer la satisfaction des clients concernant nos services",
+  createdAt: "2024-07-25T08:00:00.000+00:00",
+  createdBy: {
+    employeeName: "Jane Smit",
+    employeeRole: "Responsable du service client"
+  }
+    
 };
 
 const donnees = {
-  name: "Enquête de  003",
+    name: "Enquête de Satisfaction 003",
+    description: "Enquête visant à évaluer la satisfaction des clients concernant nos services",
+   createdAt: "2024-07-25T08:00:00.000+00:00",
+   createdBy: {
+     employeeName: "Jane Smit",
+     employeeRole: "Responsable du service client"
+    }
 };
+
 
 const question = {
   id: 2,

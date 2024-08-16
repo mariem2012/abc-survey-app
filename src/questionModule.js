@@ -17,8 +17,6 @@ async function getQuestion () {
 
 async function addQuestion(questionDetails) {
     try {
-        console.log("Détails du fichier reçus:", questionDetails);
-
         if (!questionDetails || !questionDetails.id) {
             throw new Error("Les détails du fichier ou l'ID sont manquants.");
         }
