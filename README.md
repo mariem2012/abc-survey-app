@@ -18,14 +18,13 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 1. **Clonez le repository :**
 
    ```bash
-   git clone https://github.com/mariem2012/abc-Survey-app.git
+   git clone https://github.com/mariem2012/abc-survey-app.git
    ```
 
 2. **Accédez au dossier du projet :**
 
    ```bash
-
-   cd abc-Survey-app
+   cd abc-survey-app
    ```
 
 3. **Installez les dépendances :**
@@ -77,4 +76,4 @@ npm start
 
 ## Auteur
 
-- [Mariem Boudallaye Dianifaba](https://github.com/mariem2012/abc-Survey-app.git)
+- [Mariem Boudallaye Dianifaba](https://github.com/mariem2012/abc-survey-app.git)
