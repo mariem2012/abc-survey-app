@@ -2,6 +2,7 @@ const {db, client} = require("./config/database")
 
 const survey = db.collection("surveys")
 
+
 async function getSurvey () {
     try {
         const result = await survey.find({}).toArray(); 

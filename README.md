@@ -37,23 +37,6 @@ Suivez ces étapes pour configurer le projet sur votre machine locale :
 4. **Configuration de la base de données :**
 
    Le fichier `config/database.js` contient la configuration nécessaire pour interagir avec la base de données et ses différentes collections.
-   avant de lancer l'application, il est necessaire de mettre en place la base de données et les differentes collections à l'aide de commandes suivantes :
-
-   ```mongoDB
-   use Survey_db
-   ```
-
-   ```mongoDB
-   db.createCollection("answers")
-   ```
-
-   ```mongoDB
-   db.createCollection("Surveys")
-   ```
-   
-   ```mongoDB
-   db.createCollection("questions")
-   ```
 
 ## Modules et Documentation
 
