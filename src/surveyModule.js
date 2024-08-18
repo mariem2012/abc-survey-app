@@ -1,10 +1,10 @@
 const {db, client} = require("./config/database")
 
-const file = db.collection("files")
+const survey = db.collection("surveys")
 
-async function getFile () {
+async function getSurvey () {
     try {
-        const result = await file.find({}).toArray(); 
+        const result = await survey.find({}).toArray(); 
         console.log('resultat',result);
       
     } catch (error) {
@@ -15,19 +15,19 @@ async function getFile () {
 
 
 
-async function addFile(fileDetails) {
+async function addSurvey(surveyDetails) {
     try {
-        if (!fileDetails || !fileDetails.id) {
+        if (!surveyDetails || !surveyDetails.id) {
             throw new Error("Les détails du fichier ou l'ID sont manquants.");
         }
 
-        const existingFile = await file.findOne({ id: fileDetails.id });
+        const existingSurvey = await survey.findOne({ id: surveyDetails.id });
 
-        if (existingFile) {
-            throw new Error(`Un fichier avec l'ID ${fileDetails.id} existe déjà.`);
+        if (existingSurvey) {
+            throw new Error(`Un fichier avec l'ID ${surveyDetails.id} existe déjà.`);
         }
 
-        const result = await file.insertOne(fileDetails);
+        const result = await survey.insertOne(surveyDetails);
         console.log("Fichier ajouté avec succès");
 
         return result.id;
@@ -39,16 +39,16 @@ async function addFile(fileDetails) {
 
 
 
-async function updateFile(id, updateDetails) {
+async function updateSurvey(id, updateDetails) {
     try {
         if (updateDetails.id) {
-            const existingFile = await file.findOne({ id: updateDetails.id, _id: { $ne: id } });
-            if (existingFile) {
+            const existingSurvey = await survey.findOne({ id: updateDetails.id, _id: { $ne: id } });
+            if (existingSurvey) {
                 throw new Error(`Un fichier avec l'ID ${updateDetails.id} existe déjà.`);
             }
         }
 
-        const result = await file.updateOne({ id: id }, { $set: updateDetails });  
+        const result = await survey.updateOne({ id: id }, { $set: updateDetails });  
         
         if (result.matchedCount === 0) {
             throw new Error("Fichier non trouvé");
@@ -64,9 +64,9 @@ async function updateFile(id, updateDetails) {
 }
 
 
-async function deleteFile(id) {
+async function deleteSurvey(id) {
     try {
-        const result = await file.deleteOne({ id: id }); 
+        const result = await survey.deleteOne({ id: id }); 
         if (result.deletedCount === 0) {
             console.log("Aucun fichier trouvé avec cet ID.");
             return false;  
@@ -84,4 +84,4 @@ async function deleteFile(id) {
 }
 
 
-module.exports = { getFile, addFile, updateFile, deleteFile};
+module.exports = { getSurvey, addSurvey, updateSurvey, deleteSurvey};

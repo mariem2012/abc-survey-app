@@ -1,5 +1,10 @@
 const { client } = require("./config/database");
-const { getFile, addFile, updateFile, deleteFile } = require("./fileModule");
+const {
+  getSurvey,
+  addSurvey,
+  updateSurvey,
+  deleteSurvey,
+} = require("./surveyModule");
 const {
   getAnswer,
   addAnswer,
@@ -13,34 +18,27 @@ const {
   updateQuestion,
 } = require("./questionModule");
 
-
-
 const donnee = {
-   id: 20,
-   name: "Enquête de Satisfaction 003",
-   description: "Enquête visant à évaluer la satisfaction des clients concernant nos services",
+  id: 1,
+  name: "Enquête de Satisfaction 003",
+  description:
+    "Enquête visant à évaluer la satisfaction des clients concernant nos services",
   createdAt: "2024-07-25T08:00:00.000+00:00",
   createdBy: {
     employeeName: "Jane Smit",
-    employeeRole: "Responsable du service client"
-  }
-    
+    employeeRole: "Responsable du service client",
+  },
 };
 
 const donnees = {
-    name: "Enquête de Satisfaction 003",
-    description: "Enquête visant à évaluer la satisfaction des clients concernant nos services",
-   createdAt: "2024-07-25T08:00:00.000+00:00",
-   createdBy: {
-     employeeName: "Jane Smit",
-     employeeRole: "Responsable du service client"
-    }
+  name: "Enquête de Satisfaction 003",
+  description:
+    "Enquête visant à évaluer la satisfaction des clients concernant nos services",
 };
 
-
 const question = {
-  id: 2,
-  fileId: 1,
+  id: 11,
+  SurveyId: 1,
   title: "Comment évalueriez-vous notre service ?",
   type: "rating",
   options: {
@@ -51,17 +49,17 @@ const question = {
 };
 
 const answer = {
-  id: 9,
+  id: 1,
   questionId: 2,
   answer: "Très satisfait",
 };
 
 async function main() {
   try {
-    await getFile();
-    await addFile(donnee)
-    await updateFile(1, donnees);
-    await deleteFile(8);
+    await getSurvey();
+    await addSurvey(donnee);
+    await updateSurvey(1, donnees);
+    await deleteSurvey(8);
 
     await getAnswer();
     await addAnswer(answer);
@@ -78,4 +76,4 @@ async function main() {
     await client.close();
   }
 }
-main()
+main();
